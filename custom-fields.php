@@ -23,56 +23,56 @@ function create_form_custom_field($post) {
 			$dt_finais_de_semana  = 'DD-MM-AAAA';
 		}  
 	  
-	 
-    $html  = '<label for="date_course"> Integral </label>';
-    $html .= '<div id="listas"><textarea pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-[0-9]{4}" title="Digite Data Corretamente" rows="4" cols="50" id="dt_integral"  name="dt_integral" value="'.$dt_integral .'" />' .$dt_integral . '</textarea></div>';
+?>	 
+    <label for="date_course"> Integral </label> 
+    <div id="listas"><textarea pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-[0-9]{4}" title="Digite Data Corretamente" rows="4" cols="50" id="dt_integral"  name="dt_integral" value="<?php echo esc_attr( $dt_integral ); ?>" /><?php echo esc_html( $dt_integral ); ?></textarea></div> 
 	
-	$html .= '<label for="date_course"> Noturno </label>';
-    $html .= '<div id="listas"><textarea rows="4" cols="50" id="dt_noturno"  name="dt_noturno" value="'.$dt_noturno .'" />'.$dt_noturno .' </textarea></div>';
+	<label for="date_course"> Noturno </label>
+    <div id="listas"><textarea rows="4" cols="50" id="dt_noturno"  name="dt_noturno" value="<?php echo esc_attr( $dt_noturno ); ?>" /><?php echo esc_html( $dt_finais_de_semana ); ?></textarea></div>' 
    
-	$html .= '<label for="date_course"> Sabado </label>';
-    $html .= '<div id="listas"><textarea rows="4" cols="50" id="dt_sabado"  name="dt_sabado" value="'.$dt_sabado .'" />'.$dt_sabado .' </textarea></div>';
+	<label for="date_course"> Sabado </label> 
+    <div id="listas"><textarea rows="4" cols="50" id="dt_sabado"  name="dt_sabado" value="<?php echo esc_attr( $dt_sabado ); ?>" /><?php echo esc_html( $dt_finais_de_semana ); ?></textarea></div> 
    
-	$html .= '<label for="date_course"> Finais de Semana </label>';
-	$html .= '<div id="listas"><textarea rows="4" cols="50" id="dt_finais_de_semana"  name="dt_finais_de_semana" value="'.$dt_finais_de_semana .'" /> '. $dt_finais_de_semana .' </textarea></div>';
+	<label for="date_course"> Finais de Semana </label> 
+	<div id="listas"><textarea rows="4" cols="50" id="dt_finais_de_semana"  name="dt_finais_de_semana" value="<?php echo esc_attr( $dt_finais_de_semana ); ?>" /><?php echo esc_html( $dt_finais_de_semana ); ?></textarea></div> 
   
   
-	$html .= '<br><label for="integral"> Integral </label>';
+	<br><label for="integral"> Integral </label> 
 	
-	$html .= '<br><select name="integral" value="'. $integral .'" />
+	<br><select name="integral" value="<?php echo esc_attr( $integral ); ?>" />
 				<option selected> Escolha Turno </option>
 				<option > Sim </option>
 				<option> Não </option>
-			</select>';	
+			</select>
 			
-	$html .= '<br><label for="integral"> Noturno </label>';		
-	$html .= '<br><select name="noturno" value="'. $noturno .'" />
+	<br><label for="integral"> Noturno </label> 		
+	<br><select name="noturno" value="<?php echo esc_attr( $noturno ); ?>" />
 				<option selected> Escolha Turno </option>
 				<option > Sim </option>
 				<option> Não </option>
-			</select>';
+			</select> 
 
-	$html .= '<br><label for="integral"> Sabado </label>';		
-	$html .= '<br><select name="sabado" value="'. $sabado .'" />
+	<br><label for="integral"> Sabado </label> 		
+	<br><select name="sabado" value="<?php echo esc_attr( $sabado ); ?>" />
 				<option selected> Escolha Turno </option>
 				<option > Sim </option>
 				<option> Não </option>
 			</select>';
 			
-	$html .= '<br><label for="integral"> Finais de Semana </label>';
-	$html .= '<br><select name="finais_de_semana" value="'. $finais_de_semana .'" />
+	<br><label for="integral"> Finais de Semana </label> 
+	<br><select name="finais_de_semana" value="<?php echo esc_attr( $finais_de_semana ); ?>" />
 				<option selected> Escolha Turno </option>
 				<option > Sim </option>
 				<option> Não </option>
 			</select>';
 			
-	$html .= '<br><label for="carga_h"> Carga horária </label>';
-    $html .= '<br><input id="carga_h" type="text" name="carga_h" value="'. $carga_h .'" />';
+	<br><label for="carga_h"> Carga horária </label> 
+    <br><input id="carga_h" type="text" name="carga_h" value="<?php echo esc_attr( $carga_h ); ?>" /> 
 	
   
  
-    echo $html;
-} 
+ }
+<?php 
 function add_custom_meta_box() {
     add_meta_box(
             'custom-field-code',

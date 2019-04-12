@@ -1,10 +1,9 @@
 <?php
 
-	function HelloWorldShortcode() {
-		
-	// Documentação completa em http://codex.wordpress.org/Class_Reference/WP_Query
-	$args = array(
-		'cat' => 38, //ID da sua categoria
+	function showCourse() {
+	 
+	 $args = array(
+		'cat' => 38, //ID Categoria Curso
 		'posts_per_page ' => 4, // Número de posts a exibir
 	);
 ?>
@@ -23,8 +22,8 @@
     </tr>
   </thead>
   
-  <?php $novo_loop = new WP_Query( $args );
-		if ( $novo_loop->have_posts() ) { while ( $novo_loop->have_posts() ) : $novo_loop->the_post();
+  <?php $new_loop = new WP_Query( $args );
+		if ( $new_loop->have_posts() ) { while ( $new_loop->have_posts() ) : $new_loop->the_post();
 			if($dt_integral = get_post_meta(get_the_ID(), 'dt_integral', true)){
 				if($dt_noturno = get_post_meta(get_the_ID(), 'dt_noturno', true)){
 					if($dt_sabado = get_post_meta(get_the_ID(), 'dt_sabado', true)){
@@ -40,10 +39,10 @@
 			<tr>
 				<td style="width: 150px;"><?=the_post_thumbnail('curse-custom-size') ?></td>
 				<td ><?=the_title() ?><br>Carga horaria: <?=$carga_h ?> H<br> Presencial e Online Ao Vivo</td>
-				<td style="width: 130px;text-align: center;"><?php if($integral=='Sim'){ echo $dt_integral;}else {}; ?></td>
-				<td style="width: 130px;text-align: center;"><?php if($noturno=='Sim'){ echo $dt_noturno;}else {}; ?></td>
-				<td style="width: 130px;text-align: center;"><?php if($sabado=='Sim'){ echo $dt_sabado;}else {}; ?></td>
-				<td style="width: 200px;text-align: center;"><?php if($finais_de_semana=='Sim'){ echo $dt_finais_de_semana;}else {}; ?></td>
+				<td style="width: 130px;text-align: center;"><?php if($integral=='Sim'){ echo esc_html($dt_integral);} endif; ?></td>
+				<td style="width: 130px;text-align: center;"><?php if($noturno=='Sim'){ echo esc_html($dt_noturno);} endif; ?></td>
+				<td style="width: 130px;text-align: center;"><?php if($sabado=='Sim'){ echo esc_html($dt_sabado);} endif; ?></td>
+				<td style="width: 200px;text-align: center;"><?php if($finais_de_semana=='Sim'){ echo esc_html($dt_finais_de_semana);} endif; ?></td>
 				<td><a class="btn btn-inscrevase" href="<?php echo esc_url( get_permalink() ); ?>">INSCREVA-SE</a></td>
 			</tr>
 		</tbody>
@@ -66,8 +65,7 @@
 
 
 <?php 
-	// Reseta as queries
 		wp_reset_postdata();
 	}
-		add_shortcode('helloworld', 'HelloWorldShortcode');
+		add_shortcode('show_course', 'showCourse');
 ?>
