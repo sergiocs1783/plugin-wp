@@ -38,7 +38,7 @@
 		<tbody>
 			<tr>
 				<td style="width: 150px;"><?=the_post_thumbnail('curse-custom-size') ?></td>
-				<td ><?=the_title() ?><br>Carga horaria: <?=$carga_h ?> H<br> Presencial e Online Ao Vivo</td>
+				<td ><?=the_title() ?><br>Carga horaria: <?php echo esc_html($carga_h); ?> H<br> Presencial e Online Ao Vivo</td>
 				<td style="width: 130px;text-align: center;"><?php if($integral=='Sim'){ echo esc_html($dt_integral);} endif; ?></td>
 				<td style="width: 130px;text-align: center;"><?php if($noturno=='Sim'){ echo esc_html($dt_noturno);} endif; ?></td>
 				<td style="width: 130px;text-align: center;"><?php if($sabado=='Sim'){ echo esc_html($dt_sabado);} endif; ?></td>
